@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Exampoll — sitemap.xml
+  Generated from the live Supabase data (colleges, courses, blogs)
+  plus all static pages. Regenerate whenever listings change by
+  re-running this against the colleges/courses/blogs tables.
+-->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url><loc>https://exampoll.online/</loc><changefreq>daily</changefreq><priority>1.0</priority></url>
+  <url><loc>https://exampoll.online/colleges</loc><changefreq>daily</changefreq><priority>0.9</priority></url>
+  <url><loc>https://exampoll.online/courses</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://exampoll.online/online-degrees</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://exampoll.online/study-abroad</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://exampoll.online/education-loan</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://exampoll.online/blogs</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
+  <url><loc>https://exampoll.online/college/amity-dubai</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://exampoll.online/college/amity-gurugram</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://exampoll.online/college/amity-jaipur</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://exampoll.online/college/amity-online</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://exampoll.online/college/ashoka-sonipat</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://exampoll.online/college/aus-sharjah</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://exampoll.online/college/bits-dubai</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://exampoll.online/college/cu-online</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://exampoll.online/college/dit-dehradun</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://exampoll.online/college/galgotias-greaternoida</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://exampoll.online/college/gehu-dehradun</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://exampoll.online/college/icfai-dehradun</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://exampoll.online/college/integral-lucknow</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://exampoll.online/college/jain-online</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://exampoll.online/college/jamia-hamdard</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://exampoll.online/college/jecrc-jaipur</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://exampoll.online/college/jiit-noida</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://exampoll.online/college/jims-rohini</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://exampoll.online/college/jlu-bhopal</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://exampoll.online/college/lnct-bhopal</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://exampoll.online/college/lpu-online</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://exampoll.online/college/medicaps-indore</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://exampoll.online/college/muj-jaipur</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://exampoll.online/college/muj-online</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://exampoll.online/college/northcap-gurugram</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://exampoll.online/college/opjgu-sonipat</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://exampoll.online/college/poornima-jaipur</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://exampoll.online/college/rdias-delhi</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://exampoll.online/college/rmit-australia</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://exampoll.online/college/sage-indore</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://exampoll.online/college/sgt-gurugram</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://exampoll.online/college/sharda-greaternoida</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://exampoll.online/college/sharda-online</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://exampoll.online/college/snu-greaternoida</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://exampoll.online/college/u-melbourne-australia</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://exampoll.online/college/u-toronto-canada</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://exampoll.online/college/u-waterloo-canada</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://exampoll.online/college/uos-sharjah</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://exampoll.online/college/upes-dehradun</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://exampoll.online/college/uttaranchal-dehradun</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://exampoll.online/college/vgu-jaipur</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://exampoll.online/college/vips-delhi</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://exampoll.online/college/vit-bhopal</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://exampoll.online/courses/crs_4uypjvt</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://exampoll.online/courses/crs_dtbxmts</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://exampoll.online/courses/crs_y9m4ulu</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://exampoll.online/courses/crs_zd23axu</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://exampoll.online/courses/crs-ba-jmc</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://exampoll.online/courses/crs-bba</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://exampoll.online/courses/crs-bca</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://exampoll.online/courses/crs-bcom</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://exampoll.online/courses/crs-btech-cse</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://exampoll.online/courses/crs-btech-me</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://exampoll.online/courses/crs-ma-eco</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://exampoll.online/courses/crs-mba</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://exampoll.online/courses/crs-mca</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://exampoll.online/courses/crs-mtech-cse</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://exampoll.online/courses/crs-online-bba</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://exampoll.online/courses/crs-online-mba</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://exampoll.online/blog/how-to-choose-the-right-college-in-2026</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://exampoll.online/blog/online-degrees-vs-on-campus-what-should-you-pick</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://exampoll.online/blog/study-abroad-on-a-budget-countries-worth-considering</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://exampoll.online/blog/why-should-you-take-cuet-2027-7-important-reasons-for-students</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://exampoll.online/about</loc><changefreq>monthly</changefreq><priority>0.4</priority></url>
+  <url><loc>https://exampoll.online/faqs</loc><changefreq>monthly</changefreq><priority>0.4</priority></url>
+  <url><loc>https://exampoll.online/our-promise</loc><changefreq>monthly</changefreq><priority>0.4</priority></url>
+  <url><loc>https://exampoll.online/contact</loc><changefreq>monthly</changefreq><priority>0.3</priority></url>
+  <url><loc>https://exampoll.online/privacy</loc><changefreq>yearly</changefreq><priority>0.2</priority></url>
+  <url><loc>https://exampoll.online/terms</loc><changefreq>yearly</changefreq><priority>0.2</priority></url>
+</urlset>
