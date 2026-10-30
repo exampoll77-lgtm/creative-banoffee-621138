@@ -441,7 +441,8 @@ select, .input{width:100%; padding:10px 12px; border:1.5px solid var(--border-st
 .detail-tabs button{background:none; border:none; padding:12px 16px; font-weight:700; font-size:13.5px; color:var(--slate-light); border-bottom:2.5px solid transparent; white-space:nowrap;}
 .detail-tabs button.active{color:var(--purple); border-color:var(--purple);}
 .detail-layout{display:grid; grid-template-columns:1fr 320px; gap:32px; align-items:start;}
-@media(max-width:900px){.detail-layout{grid-template-columns:1fr;}}
+.detail-layout>*{min-width:0;}
+@media(max-width:900px){.detail-layout{grid-template-columns:minmax(0,1fr);}}
 .card-plain{background:#fff; border:1.5px solid var(--border); border-radius:14px; padding:24px;}
 .sidebar-mini{margin-top:0; display:flex; gap:14px; align-items:flex-start; padding:20px; border-radius:14px;}
 .sidebar-mini-ic{width:48px; height:48px; border-radius:12px; display:flex; align-items:center; justify-content:center; font-size:23px; flex-shrink:0;}
@@ -536,7 +537,8 @@ table.fees-table tr:last-child td{border-bottom:none;}
 .kpi{background:#fff; border:1.5px solid var(--border); border-radius:14px; padding:18px 20px;}
 .kpi .lbl{font-size:12px; color:var(--slate-light); font-family:'IBM Plex Mono'; text-transform:uppercase; letter-spacing:.04em;}
 .kpi .val{font-family:'Plus Jakarta Sans'; font-size:26px; font-weight:800; margin-top:6px;}
-.admin-table-wrap{background:#fff; border:1.5px solid var(--border); border-radius:14px; overflow:hidden;}
+.admin-table-wrap{background:#fff; border:1.5px solid var(--border); border-radius:14px; overflow-x:auto; -webkit-overflow-scrolling:touch; max-width:100%;}
+.tbl-scroll{overflow-x:auto; -webkit-overflow-scrolling:touch; max-width:100%;}
 .admin-table{width:100%; border-collapse:collapse;}
 .admin-table th{text-align:left; font-size:11.5px; text-transform:uppercase; letter-spacing:.04em; color:var(--slate-light); font-family:'IBM Plex Mono'; padding:12px 16px; background:var(--paper-alt); border-bottom:1.5px solid var(--border);}
 .admin-table td{padding:13px 16px; border-bottom:1px solid var(--border); font-size:13.5px; vertical-align:middle;}
@@ -631,10 +633,108 @@ table.fees-table tr:last-child td{border-bottom:none;}
 .ln-faq{background:#fff;border:1.5px solid var(--border);border-radius:14px;padding:16px 20px;margin-bottom:10px;}
 .ln-faq summary{cursor:pointer;font-weight:700;color:var(--ink);font-size:15px;}
 .ln-faq p{margin:10px 0 0;color:var(--slate);font-size:14px;line-height:1.7;}
+
+/* Education loan page v2 */
+.ln-banks{display:grid;grid-template-columns:repeat(5,1fr);gap:12px;}
+@media(max-width:900px){.ln-banks{grid-template-columns:repeat(2,1fr);}}
+.ln-hero2{padding:44px 0 36px;background:linear-gradient(180deg,#F3E8FF,#FFFFFF);text-align:center;}
+.ln-hero2 h1{font-size:clamp(28px,4.4vw,44px);line-height:1.15;margin:14px auto 10px;max-width:18ch;}
+.ln-hero2 .ln-sub{color:var(--slate);font-size:16px;max-width:560px;margin:0 auto 22px;line-height:1.65;}
+.ln-badge{display:inline-block;font-size:12px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:var(--purple-hover);background:#fff;border:1px solid var(--border);border-radius:999px;padding:6px 14px;}
+.ln-cta-row{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin:20px 0 24px;}
+.ln-cta-main{background:var(--indigo);color:#fff;border:0;border-radius:14px;padding:16px 30px;font:800 17px 'Plus Jakarta Sans',sans-serif;cursor:pointer;min-width:260px;}
+.ln-cta-main:hover{background:#1E293B;}
+.ln-cta-ghost{background:#fff;color:var(--ink);border:2px solid var(--border-strong);border-radius:14px;padding:14px 26px;font:700 16px 'Plus Jakarta Sans',sans-serif;cursor:pointer;}
+.ln-chips{list-style:none;display:flex;gap:10px 22px;justify-content:center;flex-wrap:wrap;padding:0;margin:0;}
+.ln-chips li{display:flex;gap:8px;align-items:center;color:var(--purple);}
+.ln-chips li span{color:var(--ink);font-size:14px;font-weight:600;}
+.ln-cards{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;}
+.ln-card{background:#fff;border:1px solid var(--border);border-radius:16px;padding:16px;display:flex;gap:12px;align-items:center;}
+.ln-card span{font-size:15px;color:var(--ink);font-weight:600;}
+.ln-steps{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;counter-reset:s;list-style:none;padding:0;margin:0;}
+.ln-steps li{counter-increment:s;background:#fff;border:1px solid var(--border);border-radius:16px;padding:18px;}
+.ln-steps li::before{content:counter(s);display:grid;place-items:center;width:28px;height:28px;border-radius:50%;background:var(--purple);color:#fff;font:800 13px 'Plus Jakarta Sans',sans-serif;margin-bottom:10px;}
+.ln-steps b{display:block;font:800 15px 'Plus Jakarta Sans',sans-serif;color:var(--ink);margin-bottom:4px;}
+.ln-steps span{font-size:13.5px;color:var(--slate);}
+.ln-docs{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+.ln-docs>div{background:#fff;border:1px solid var(--border);border-radius:16px;padding:18px;}
+.ln-docs h3{font:800 16px 'Plus Jakarta Sans',sans-serif;margin-bottom:10px;}
+.ln-docs ul{margin:0;padding:0;list-style:none;display:grid;gap:8px;}
+.ln-docs li{display:flex;gap:8px;font-size:14px;color:var(--ink);}
+.ln-docs li::before{content:"\2713";color:var(--success);font-weight:800;}
+.ln-sticky{display:none;}
+@media(max-width:900px){.ln-steps{grid-template-columns:1fr 1fr;}}
+@media(max-width:640px){
+ body:has(.ln-sticky) .confused-fab{bottom:92px;}
+ .ln-cta-main{width:100%;min-width:0;}
+ .ln-cta-row{flex-direction:column;align-items:stretch;}
+ .ln-cards,.ln-docs,.ln-steps{grid-template-columns:1fr;}
+ .ln-sticky{display:block;position:fixed;left:0;right:0;bottom:0;background:#fff;border-top:1px solid var(--border);padding:12px 16px;z-index:60;box-shadow:0 -8px 24px rgba(15,23,42,.08);}
+ .ln-sticky button{width:100%;background:var(--indigo);color:#fff;border:0;border-radius:14px;padding:15px;font:800 16px 'Plus Jakarta Sans',sans-serif;cursor:pointer;}
+ .ln-page-pad{padding-bottom:110px !important;}
+}
+
+/* Homepage CUET card */
+.cuet-card{display:flex;flex-direction:column;align-items:center;text-align:center;color:#fff;background:linear-gradient(135deg,#6D28D9 0%,#7C3AED 55%,#A855F7 100%);border-radius:24px;padding:36px 32px;box-shadow:var(--shadow-lg);}
+.cuet-card .cc-tag{display:block;font-size:13px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;opacity:.9;}
+.cuet-card .cc-year{display:block;font-family:'Plus Jakarta Sans',sans-serif;font-size:clamp(40px,7vw,64px);font-weight:900;line-height:1.05;margin:8px 0 0;}
+.cuet-card .cc-list{list-style:none;padding:0;margin:26px 0 0;display:grid;grid-template-columns:repeat(2,1fr);gap:14px;width:100%;max-width:640px;}
+.cuet-card .cc-list li{display:flex;align-items:center;justify-content:center;gap:10px;min-height:58px;background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.28);border-radius:16px;padding:14px 18px;font-weight:700;font-size:16px;}
+.cuet-card .cc-list li span{display:inline-grid;place-items:center;width:22px;height:22px;flex:none;border-radius:50%;background:#fff;color:#6D28D9;font-size:13px;font-weight:900;}
+.cuet-card .cc-actions{display:flex;flex-wrap:wrap;justify-content:center;gap:12px;margin-top:30px;}
+.cuet-card .cc-btn{display:inline-flex;align-items:center;justify-content:center;background:#fff;color:#6D28D9;font-weight:800;font-size:16px;padding:14px 24px;border-radius:14px;text-decoration:none;}
+.cuet-card .cc-list li:last-child:nth-child(odd){grid-column:1 / -1;}
+@media(max-width:640px){.cuet-card{padding:26px 20px;}.cuet-card .cc-list{grid-template-columns:1fr;gap:12px;}.cuet-card .cc-actions{flex-direction:column;width:100%;}.cuet-card .cc-actions .cc-btn{width:100%;}}
+
+/* Colorful category cards (homepage) */
+.cat-card.c-india{background:linear-gradient(135deg,#6D28D9 0%,#9333EA 100%);border:0;color:#fff;}
+.cat-card.c-online{background:linear-gradient(135deg,#0369A1 0%,#0E7490 100%);border:0;color:#fff;}
+.cat-card.c-abroad{background:linear-gradient(135deg,#C2410C 0%,#DB2777 100%);border:0;color:#fff;}
+.cat-card.c-india h3,.cat-card.c-online h3,.cat-card.c-abroad h3{color:#fff;}
+.cat-card.c-india p,.cat-card.c-online p,.cat-card.c-abroad p{color:rgba(255,255,255,.92);}
+.cat-card.c-india .ic{color:#6D28D9;}
+.cat-card.c-online .ic{color:#0369A1;}
+.cat-card.c-abroad .ic{color:#C2410C;}
+.cat-card.c-india .go{background:#fff;color:#6D28D9;}
+.cat-card.c-online .go{background:#fff;color:#0E7490;}
+.cat-card.c-abroad .go{background:#fff;color:#C2410C;}
+
+/* Mobile: hide the floating AI button while scrolling down so it does not cover text */
+.confused-fab{transition:transform .22s ease, opacity .22s ease;}
+@media(max-width:640px){body.fab-hide .confused-fab{transform:translateY(160%);opacity:0;pointer-events:none;}}
+
+/* Exampoll AI: floating button + hero quiz link, latest style */
+.confused-fab{background:linear-gradient(135deg,#6D28D9 0%,#DB2777 100%); padding:12px 20px 12px 12px; font-family:'Plus Jakarta Sans',sans-serif; font-size:15px; font-weight:800; box-shadow:0 14px 30px rgba(109,40,217,.38);}
+.confused-fab:hover{background:linear-gradient(135deg,#5B21B6 0%,#BE185D 100%);}
+.confused-fab .ic{display:inline-grid; place-items:center; width:32px; height:32px; border-radius:50%; background:#fff; font-size:16px; flex:none;}
+@media(max-width:640px){.confused-fab .lbl{display:none;} .confused-fab{width:54px; height:54px; padding:0; justify-content:center; right:14px; bottom:14px;} .confused-fab .ic{width:38px; height:38px; font-size:18px;}}
+.quiz-cta{display:inline-flex; flex-wrap:wrap; justify-content:center; align-items:center; gap:6px; margin-top:16px; font-size:14px; font-weight:800; color:#6D28D9; background:linear-gradient(135deg,#F3E8FF 0%,#FCE7F3 100%); border:1.5px solid #E9D5FF; border-radius:999px; padding:10px 18px; line-height:1.4; max-width:100%; text-align:center;}
+.quiz-cta:hover{text-decoration:none; box-shadow:0 8px 20px rgba(109,40,217,.16); transform:translateY(-1px);}
+@media(max-width:640px){.quiz-cta{font-size:13px; padding:9px 14px;}}
+
+/* Enquiry popup: latest style */
+.modal-head{background:linear-gradient(135deg,#6D28D9 0%,#DB2777 100%); color:#fff; padding:24px 24px 22px;}
+.modal-head h3{color:#fff; font-family:'Plus Jakarta Sans',sans-serif; font-weight:800;}
+.modal-head p{color:rgba(255,255,255,.9);}
+.modal-head .modal-close{background:rgba(255,255,255,.22); color:#fff;}
+.modal-head .modal-close:hover{background:rgba(255,255,255,.34);}
+.modal .value-props{background:linear-gradient(135deg,#F3E8FF 0%,#FCE7F3 100%); border:1px solid #E9D5FF;}
+#enquiry-form .btn-primary{background:linear-gradient(135deg,#6D28D9 0%,#DB2777 100%); border:0;}
+#enquiry-form .btn-primary:hover{background:linear-gradient(135deg,#5B21B6 0%,#BE185D 100%);}
+
+/* Exampoll AI entry screen */
+.entry-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:10px;}
+.entry-card{background:#fff; border:1.5px solid #E9D5FF; border-radius:16px; padding:16px 10px; cursor:pointer; font-family:inherit; display:flex; flex-direction:column; align-items:center; gap:6px; color:var(--ink); transition:background .15s ease, border-color .15s ease, transform .15s ease;}
+.entry-card:hover{border-color:#7C3AED; background:#F3E8FF; transform:translateY(-2px);}
+.entry-card .ei{font-size:28px; line-height:1;}
+.entry-card b{font:800 14px 'Plus Jakarta Sans',sans-serif;}
+.entry-card small{font-size:12px; color:var(--slate);}
+@media(max-width:480px){.entry-grid{grid-template-columns:1fr;} .entry-card{flex-direction:row; text-align:left; padding:14px 16px; gap:12px;} .entry-card small{display:block;}}
+.cu-row{display:flex;gap:8px;align-items:flex-start;margin-bottom:10px;}.cu-row .cu-f{flex:1;min-width:0;}.cu-help{font-size:12.5px;color:var(--slate-light);margin:6px 0 12px;line-height:1.5;}@media(max-width:640px){.cu-row{flex-wrap:wrap;}.cu-row .cu-f{flex:1 1 100%;}}
 </style>
 </head>
 <body>
-<div id="app"></div>
+<div id="app"><noscript><div style="max-width:960px;margin:40px auto;padding:0 20px;"><h1>Exampoll: Find the Right College After Class 12</h1><p>Explore colleges, compare courses and fees, check eligibility, and get free admission counselling.</p><p><a href="/colleges">Colleges</a> · <a href="/courses">Courses</a> · <a href="/online-degrees">Online Degrees</a> · <a href="/study-abroad">Study Abroad</a> · <a href="/cuet">CUET</a> · <a href="/education-loan">Education Loan</a> · <a href="/blogs">Blogs</a> · <a href="/faqs">FAQs</a> · <a href="/contact">Contact</a></p><p>Please enable JavaScript to use the full site.</p></div></noscript></div>
 <div id="modal-root"></div>
 <div class="toast" id="toast"></div>
 
@@ -728,8 +828,7 @@ function collegeJsonLd(c){
     "@context":"https://schema.org", "@type":"CollegeOrUniversity",
     "name": c.name, "description": plain(c.description),
     "address": { "@type":"PostalAddress", "addressLocality": c.city, "addressRegion": c.abroad? undefined : c.state, "addressCountry": c.abroad? (c.country||c.state) : "India", "streetAddress": c.address||undefined },
-    "foundingDate": String(c.established||''),
-    "aggregateRating": c.rating? { "@type":"AggregateRating", "ratingValue": c.rating, "bestRating":"5" } : undefined
+    "foundingDate": String(c.established||'')
   };
 }
 function debounce(fn, ms){
@@ -882,12 +981,16 @@ function seedBlogs(){
 function gradientForSeed(s){ let h=0; for(const c of s) h=(h*31+c.charCodeAt(0))>>>0; return GRADIENTS[h % GRADIENTS.length]; }
 
 /* ---------------- State ---------------- */
+// Sample colleges/blogs are only for local preview (localhost or opened from disk).
+// On the live site the page shows real data or nothing, never invented listings.
+const IS_PREVIEW = location.protocol === 'file:' || /^(localhost|127\.0\.0\.1)$/.test(location.hostname);
 const State = {
   colleges: [], catalog: [], enquiries: [], blogs: [], adminAuthed:false,
   route:'/', enquiryCtx:null, listingFilters:{ city:'', courseId:'', level:'', fee:'', type:'', popularOnly:false, q:'' },
   listingSort:'popular', mobileNavOpen:false, adminSection:'overview', adminEditingCollege:null, adminEditingCourse:null,
   adminEditingBlog:null, enquiryFilters:{status:'', q:''}, compareIds:[], compareOpen:false,
   settings:{ studentsGuided:'10,000+' },
+  cuetConfig:null,
   dataReady:false,
   courseTab:'UG',
   homeSort:'top'
@@ -938,7 +1041,10 @@ async function loadAll(){
   try{
     const rows = settingsRes && settingsRes.data;
     if(rows && rows.length){
-      rows.forEach(r=>{ if(r.key==='students_guided') State.settings.studentsGuided = r.value; });
+      rows.forEach(r=>{
+        if(r.key==='students_guided') State.settings.studentsGuided = r.value;
+        if(r.key==='cuet_config'){ try{ State.cuetConfig = Object.assign({}, CUET_DEFAULTS, JSON.parse(r.value)); }catch(e){} }
+      });
     }
   }catch(e){ /* keep defaults if the site_settings table isn't set up yet */ }
 
@@ -974,6 +1080,7 @@ async function loadAll(){
         onlineDegree: !!c.online_degree, address: c.address||'', imageUrl: c.image_url||'',
         reviewCount: c.review_count||0, ranking: c.ranking||'', brochureUrl: c.brochure_url||'',
         placement: c.placement||'', admissionProcess: c.admission_process||'',
+        cuetAccepted: !!c.cuet_accepted, cuetDetails: c.cuet_details || {},
         courses: (c.college_courses||[]).map(cc=>({ courseId: cc.course_id, duration: cc.duration, fee: Number(cc.fee), mode: cc.mode }))
       }));
     }
@@ -1007,7 +1114,7 @@ async function loadAll(){
 async function saveColleges(){
   try{
     for(const c of State.colleges){
-      const row = { id:c.id, slug:c.slug, name:c.name, city:c.city, state:c.state, country:c.country||'', type:c.type, established:c.established, rating:c.rating, description:c.description, highlights:c.highlights, published:c.published, abroad:!!c.abroad, online_degree:!!c.onlineDegree, address:c.address||'', image_url:c.imageUrl||'', placement:c.placement||'', admission_process:c.admissionProcess||'', review_count:c.reviewCount||0, ranking:c.ranking||'', brochure_url:c.brochureUrl||'' };
+      const row = { id:c.id, slug:c.slug, name:c.name, city:c.city, state:c.state, country:c.country||'', type:c.type, established:c.established, rating:c.rating, description:c.description, highlights:c.highlights, published:c.published, abroad:!!c.abroad, online_degree:!!c.onlineDegree, address:c.address||'', image_url:c.imageUrl||'', placement:c.placement||'', admission_process:c.admissionProcess||'', review_count:c.reviewCount||0, ranking:c.ranking||'', brochure_url:c.brochureUrl||'', cuet_accepted:!!c.cuetAccepted, cuet_details:c.cuetDetails||null };
       const { error: e1 } = await sb.from('colleges').upsert(row);
       if(e1) throw e1;
       await sb.from('college_courses').delete().eq('college_id', c.id);
@@ -1072,6 +1179,7 @@ function currentPath(){
   return location.pathname || '/';
 }
 function go(path){
+  State.mobileNavOpen = false; // any navigation (including a mobile-menu link) closes the drawer
   if(currentPath()===path){ State.route=path; render(); window.scrollTo(0,0); return; }
   try{ history.pushState(null, '', path); }catch(e){ /* file:// or content:// — can't change the address bar, still switch the in-app view below */ }
   State.route = path; render(); window.scrollTo(0,0);
@@ -1084,7 +1192,7 @@ function setHomeSort(key){ State.homeSort = key; render(); }
 // because #app's innerHTML is replaced but this listener lives on document.
 document.addEventListener('click', function(e){
   const a = e.target.closest('a[href]');
-  if(!a) return;
+  if(!a || a.hasAttribute('data-native')) return;
   const href = a.getAttribute('href');
   if(!href || href.charAt(0) !== '/' || a.target === '_blank' || a.hasAttribute('download')) return;
   e.preventDefault();
@@ -1106,6 +1214,8 @@ function showToast(msg){
 function render(){
   const app = document.getElementById('app');
   const route = State.route;
+  // /cuet is the standalone static page cuet.html. If the host ignores _redirects, hand off to it.
+  if(route === '/cuet' && /^https?:/.test(location.protocol)){ location.replace('/cuet.html'); return; }
 
   // Preserve focus + cursor position across re-renders. render() rebuilds
   // #app's innerHTML from scratch every time, which used to yank focus
@@ -1157,7 +1267,7 @@ function render(){
   }
   else if(route === '/study-abroad'){
     body = pageStudyAbroad();
-    setMeta('Study Abroad — Top Universities Overseas | Exampoll','Compare foreign universities in Canada, the UK, Australia and Singapore, with course, fee and student-visa guidance from Exampoll counsellors.','study abroad, study in canada, study in uk, study in australia');
+    setMeta('Study Abroad — Top Universities Overseas | Exampoll','Compare foreign universities, courses and fees, with student-visa guidance from Exampoll counsellors.','study abroad, study in canada, study in australia, study abroad counselling');
   }
   else if(route.startsWith('/courses/')){
     const cId = decodeURIComponent(route.split('/courses/')[1]);
@@ -1187,7 +1297,7 @@ function render(){
       ), false, { type:'article', image: b.coverImage || undefined });
     else notFoundMeta('Article Not Found | Exampoll','This article is unavailable.');
   }
-  else if(route === '/education-loan') { body = pageLoan(); setMeta('Education Loan India & Abroad — EMI Calculator | Exampoll','Explore education loans for colleges in India and study abroad. Use the EMI calculator, compare banks and NBFCs and apply with minimum documents.','education loan, education loan india, study abroad loan, education loan emi calculator, student loan india, education loan documents', jsonLdGraph(loanFaqJsonLd(), breadcrumb([{name:'Home',hash:'/'},{name:'Education Loan'}]).jsonLd)); }
+  else if(route === '/education-loan') { body = pageLoan(); setMeta('Education Loan India & Abroad — EMI Calculator | Exampoll','Plan an education loan for college in India or study abroad. Estimate your EMI, see what documents you may need and get free guidance. Approval is decided by the lender.','education loan, education loan india, study abroad loan, education loan emi calculator, student loan india, education loan documents', jsonLdGraph(loanFaqJsonLd(), breadcrumb([{name:'Home',hash:'/'},{name:'Education Loan'}]).jsonLd)); }
   else if(route === '/about') { body = pageAbout(); setMeta('About Exampoll — Education & Opportunity Platform, India','Exampoll is an education and opportunity platform in India helping students discover colleges, universities, courses, admissions and careers.','about exampoll, education platform india, college discovery, career opportunities india'); }
   else if(route === '/faqs') { body = pageFAQs(); setMeta('FAQs — Admissions, Fees & Online Degrees | Exampoll', 'Answers to common questions about Exampoll: college comparison, admission guidance, online degrees and study abroad.', 'exampoll faqs, college admission questions, online degree validity', faqJsonLd()); }
   else if(route === '/our-promise') { body = pageOurPromise(); setMeta('Our Promise — No Commission, No Bias | Exampoll','Exampoll never takes commission from colleges to rank them. Read our promise of zero-bias, transparent admission guidance.','unbiased college counselling, no commission college guidance'); }
@@ -1232,6 +1342,38 @@ function afterRenderHooks(){
 function attachGlobalHandlers(){
   const searchForms = document.querySelectorAll('form[data-role="hero-search"]');
   searchForms.forEach(f=> f.onsubmit = (e)=>{ e.preventDefault(); const v = f.querySelector('input').value.trim(); State.listingFilters.q = v; go('/colleges'); });
+}
+
+/* ================= CUET PAGE CONFIG ================= */
+const CUET_DEFAULTS = {
+  live:false, year:'2027', homeTag:'Exampoll CUET Guide',
+  homePoints:['Free admission guidance','Free study material','Free notes','Printed books on order','Free college search'],
+  faq:[
+    { q:'What is CUET UG?', a:'The Common University Entrance Test (UG) is a national entrance exam conducted by the National Testing Agency (NTA). Participating universities may use its scores for undergraduate admission.' },
+    { q:'Do all colleges and courses accept CUET scores?', a:"No. Only participating institutions use CUET, and eligibility, subjects and score rules can differ by college and course. Check each college's official page." },
+    { q:'Who can apply to colleges after CUET?', a:'Eligibility depends on the college and course, such as Class 12 subjects and marks. Read the official admission notice before you apply.' },
+    { q:'Where can I find official CUET dates and syllabus?', a:'On the official CUET website at cuet.nta.nic.in and on nta.ac.in. Exampoll does not set or change official dates.' },
+    { q:'What does Exampoll guidance include?', a:'We help you compare courses and colleges and understand admission steps. Guidance supports your decision. We do not guarantee admission.' }
+  ],
+  testimonials:{ verified:false, items:[] }, materials:[]
+};
+function cuetCfg(){ return State.cuetConfig || CUET_DEFAULTS; }
+function cuetCardHTML(){
+  const c = cuetCfg();
+  const pts = (c.homePoints && c.homePoints.length) ? c.homePoints : CUET_DEFAULTS.homePoints;
+  return `
+  <section class="section" style="padding-top:0;padding-bottom:8px;" id="sec-cuet">
+    <div class="container">
+      <div class="cuet-card">
+        <span class="cc-tag">${esc(c.homeTag || CUET_DEFAULTS.homeTag)}</span>
+        <span class="cc-year">CUET ${esc(c.year || CUET_DEFAULTS.year)}</span>
+        <ul class="cc-list">${pts.map(p => `<li><span aria-hidden="true">✓</span>${esc(p)}</li>`).join('')}</ul>
+        <div class="cc-actions">
+          <a href="/cuet" data-native class="cc-btn">Explore CUET →</a>
+        </div>
+      </div>
+    </div>
+  </section>`;
 }
 
 /* ================= HEADER / FOOTER ================= */
@@ -1281,14 +1423,14 @@ function footer(){
           <img src="${LOGO_FULL}" alt="Exampoll" style="height:64px;width:auto;filter:brightness(0) invert(1);opacity:.92;margin-bottom:14px;"/>
           <p style="max-width:280px;color:#ABA9C6;font-size:13.5px;">College discovery and admission counselling platform — explore colleges, compare courses and fees, and connect with a counsellor.</p>
         </div>
-        <div><h5>Explore</h5><a href="/colleges">Colleges</a><a href="/courses">Courses</a><a href="/online-degrees">Online Degrees</a><a href="/study-abroad">Study Abroad</a><a href="/blogs">Blogs</a><a href="/education-loan">Education Loan</a></div>
+        <div><h5>Explore</h5><a href="/colleges">Colleges</a><a href="/courses">Courses</a><a href="/online-degrees">Online Degrees</a><a href="/study-abroad">Study Abroad</a><a href="/blogs">Blogs</a><a href="/education-loan">Education Loan</a><a href="/cuet" data-native>CUET 2027</a></div>
         <div><h5>Company</h5><a href="/about">About Us</a><a href="/our-promise">Our Promise</a><a href="/faqs">FAQs</a><a href="/contact">Contact</a></div>
-        <div><h5>Contact Us</h5><a href="tel:+919950389803">📞 +91 99503 89803</a><a href="mailto:exampoll77@gmail.com">✉️ exampoll77@gmail.com</a><span style="color:#ABA9C6;font-size:13.5px;">📍 Udhyog Vihar Phase 5, Gurugram, Haryana</span></div>
+        <div><h5>Contact Us</h5><a href="mailto:exampoll77@gmail.com">✉️ exampoll77@gmail.com</a><span style="color:#ABA9C6;font-size:13.5px;">📍 Udhyog Vihar Phase 5, Gurugram, Haryana</span></div>
         <div><h5>Legal</h5><a href="/privacy">Privacy Policy</a><a href="/terms">Terms &amp; Conditions</a></div>
       </div>
 
       <div class="footer-bottom">
-        <span>© 2026 Exampoll. All Rights Reserved. Made with ❤️ Dr. Pooja Singh</span>
+        <span>© 2026 Exampoll. All Rights Reserved.</span>
         <span>Exampoll helps students discover colleges — it is not affiliated with or owned by the listed institutions.</span>
       </div>
     </div>
@@ -1307,6 +1449,7 @@ function pageHome(){
   else featured = [...base].sort((a,b)=>b.rating-a.rating).slice(0,6);
   const indiaCount = publishedColleges().filter(c=>!c.abroad).length;
   const abroadCount = abroadColleges().length;
+  const abroadCountries = [...new Set(abroadColleges().map(c=>c.country||c.state).filter(Boolean))].sort();
   const onlineCount = publishedColleges().filter(c=>(c.courses||[]).some(cc=>cc.mode==='Online')).length;
 
   return `
@@ -1356,7 +1499,7 @@ function pageHome(){
             <img class="cat-card-img" src="/college-illustration.webp" alt="" loading="lazy" decoding="async">
             <div class="ic cat-card-ic-mobile"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 2 8l10 5 10-5-10-5Z"/><path d="M6 10.5V16c0 1.1 2.7 3 6 3s6-1.9 6-3v-5.5"/><path d="M22 8v6"/></svg></div>
             <h3>Colleges in India</h3>
-            <p>${indiaCount}+ verified colleges across every major city — compare fees and courses instantly.</p>
+            <p>${indiaCount}+ colleges across every major city — compare fees and courses instantly.</p>
             <span class="go"><span>Explore Indian colleges</span>→</span>
           </a>
           <a class="cat-card c-online" href="/online-degrees">
@@ -1367,10 +1510,9 @@ function pageHome(){
             <span class="go"><span>Explore online degrees</span>→</span>
           </a>
           <a class="cat-card c-abroad" href="/study-abroad">
-            <img class="cat-card-img" src="/study-abroad-illustration.webp" alt="" loading="lazy" decoding="async">
-            <div class="ic cat-card-ic-mobile"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.6 3.8 5.8 3.8 9s-1.3 6.4-3.8 9c-2.5-2.6-3.8-5.8-3.8-9S9.5 5.6 12 3Z"/></svg></div>
+            <div class="ic cat-card-ic-mobile" style="display:flex"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.6 3.8 5.8 3.8 9s-1.3 6.4-3.8 9c-2.5-2.6-3.8-5.8-3.8-9S9.5 5.6 12 3Z"/></svg></div>
             <h3>Study Abroad</h3>
-            <p>${abroadCount}+ universities across Canada, UK, Australia &amp; Singapore with visa guidance.</p>
+            <p>${abroadCount ? abroadCount+'+ universities' : 'Universities'}${abroadCountries.length ? ' in '+abroadCountries.join(', ') : ''} with visa guidance.</p>
             <span class="go"><span>Explore study abroad</span>→</span>
           </a>
         </div>
@@ -1378,18 +1520,7 @@ function pageHome(){
     </div>
   </section>
 
-  <section class="section" style="padding-top:0;padding-bottom:8px;">
-    <div class="container">
-      <a href="/education-loan" class="loan-banner">
-        <div class="loan-banner-ic">💳</div>
-        <div class="loan-banner-txt">
-          <h2>Exampoll Education Loan</h2>
-          <p>Compare partner banks, check your EMI and apply — minimum documents, no repeated calls.</p>
-        </div>
-        <span class="btn btn-primary" style="flex-shrink:0;">Explore Education Loans →</span>
-      </a>
-    </div>
-  </section>
+  ${cuetCardHTML()}
 
   <section class="section" id="sec-colleges" style="padding-top:8px;">
     <div class="container">
@@ -1781,7 +1912,7 @@ function pageCollegeDetail(id){
     tabContent = `
       <div class="card-plain">
         <h3>Courses &amp; Fees</h3>
-        <table class="fees-table">
+        <div class="tbl-scroll"><table class="fees-table">
           <thead><tr><th>Course</th><th>Duration</th><th>Mode</th><th>Fee (total)</th><th></th></tr></thead>
           <tbody>
             ${c.courses.map(cc=>`<tr>
@@ -1792,7 +1923,7 @@ function pageCollegeDetail(id){
               <td><button class="btn btn-primary btn-sm" onclick="openEnquiry('${c.id}','${cc.courseId}')">Enquire</button></td>
             </tr>`).join('')}
           </tbody>
-        </table>
+        </table></div>
       </div>`;
   } else if(tab==='gallery'){
     tabContent = `<div class="card-plain"><h3>Campus Gallery</h3>
@@ -1820,6 +1951,7 @@ function pageCollegeDetail(id){
           <div>
             <h1>${esc(c.name)}</h1>
             <div class="sub">📍 ${esc(c.address ? c.address+', ' : '')}${esc(c.city)}, ${esc(c.abroad? (c.country||c.state) : c.state)} &nbsp;·&nbsp; ${esc(c.type)} &nbsp;·&nbsp; Est. ${c.established} &nbsp;·&nbsp; ★ ${c.rating} (${(c.reviewCount||0).toLocaleString('en-IN')} reviews)</div>
+            ${c.cuetAccepted ? '<a class="trust-badge" href="/cuet" data-native style="margin-top:12px;display:inline-flex;text-decoration:none;">🎓 Accepts CUET scores · See the CUET guide →</a>' : ''}
           </div>
           <div style="display:flex;gap:10px;flex-wrap:wrap;">
             <button class="btn btn-outline" style="background:rgba(255,255,255,.95);" onclick="openEnquiry('${c.id}',null)">📄 Get Brochure</button>
@@ -1849,14 +1981,14 @@ function pageCollegeDetail(id){
             <div>
               <h4>Confused about ${esc(c.name.split(' ').slice(0,2).join(' '))}?</h4>
               <p>Talk to a free Exampoll counsellor — no commission, no pressure.</p>
-              <a href="#" onclick="event.preventDefault(); openEnquiry('${c.id}',null);">Get free counselling →</a>
+              <a href="/contact" onclick="event.preventDefault(); openEnquiry('${c.id}',null);">Get free counselling →</a>
             </div>
           </div>
           <div class="card-plain sidebar-mini mini-loan">
             <div class="sidebar-mini-ic">💳</div>
             <div>
               <h4>Fund your education</h4>
-              <p>Compare partner banks and check your EMI for a course at this college.</p>
+              <p>Compare lenders and check your EMI for a course at this college.</p>
               <a href="/education-loan">Explore education loans →</a>
             </div>
           </div>
@@ -1884,7 +2016,6 @@ function pageStudyAbroad(country){
       <div class="container">
         <div class="section-head">
           <div><span class="kicker">Study Abroad</span><h1>Choose a country to explore</h1><p>Pick a country to see its universities, courses and post-study visa pathways — all compared side by side on Exampoll.</p></div>
-          <img src="/study-abroad-illustration.webp" alt="Student planning to study abroad" width="400" height="266" loading="lazy" decoding="async" style="max-width:360px;width:100%;height:auto;border-radius:16px;">
         </div>
         ${names.length? `<div class="country-grid">${names.map(n=>`
           <a class="country-card" href="/study-abroad/${encodeURIComponent(n)}">
@@ -1892,7 +2023,7 @@ function pageStudyAbroad(country){
             <h3>${esc(n)}</h3>
             <p>${countries[n]} ${countries[n]===1?'university':'universities'} listed</p>
             <span class="go">Explore ${esc(n)} →</span>
-          </a>`).join('')}</div>` : emptyState('No abroad universities listed yet','Our team is onboarding overseas partner universities — check back soon.','Talk to a counsellor',"openEnquiry(null,null)")}
+          </a>`).join('')}</div>` : emptyState('No abroad universities listed yet','Our team is adding overseas universities — check back soon.','Talk to a counsellor',"openEnquiry(null,null)")}
       </div>
     </section>`;
   }
@@ -2162,49 +2293,53 @@ function pageLoan(){
   const t = LOAN.tab, cfg = LOAN_CFG[t], c = loanCalc();
   const abroad = t==='abroad';
   const covers = abroad
-    ? ['Tuition fees for the full course','Living and accommodation expenses','Travel and airfare','Health insurance and visa-related costs','Books, laptop and study equipment']
-    : ['Tuition and course fees','Hostel and accommodation','Books, laptop and study material','Exam, library and lab fees','Other institution-required expenses'];
+    ? [['globe','Tuition fees for the full course'],['bank','Living and accommodation'],['globe','Travel and airfare'],['shield','Health insurance and visa costs'],['doc','Books, laptop and study equipment']]
+    : [['cap','Tuition and course fees'],['bank','Hostel and accommodation'],['doc','Books, laptop and study material'],['shield','Exam, library and lab fees'],['check','Other institution-required costs']];
   const studentDocs = abroad
-    ? ['Admission or offer letter from the university','Passport and photographs','Academic records and test scores (as applicable)','Estimated cost of attendance / fee details','Aadhaar and PAN']
+    ? ['Admission or offer letter from the university','Passport and photographs','Academic records and test scores (as applicable)','Estimated cost of attendance and fee details','Aadhaar and PAN']
     : ['Admission letter or offer from the institution','Fee structure or fee schedule','Class 10, 12 and graduation marksheets (as applicable)','Aadhaar and PAN','Passport-size photographs'];
-  const coDocs = ['Aadhaar and PAN (KYC)','Income proof - salary slips or ITR','Recent bank statements','Address proof'];
-  const li = (name,txt)=>`<li>${lnIco(name,18)}<span>${txt}</span></li>`;
+  const coDocs = ['Aadhaar and PAN (KYC)','Income proof: salary slips or ITR','Recent bank statements','Address proof'];
   const steps = [
-    ['Share basic details','Tell us the course, country and amount you need. It takes just a couple of minutes.'],
-    ['Get matched to lenders','We help you compare banks and NBFCs that suit your profile and course.'],
-    ['Submit only essential documents','You get a clear checklist - no long lists and no back-and-forth.'],
-    ['Sanction and disbursal','Once the lender approves, the fee is usually paid directly to the institution.']
+    ['Share basic details','Tell us the course, country and amount you need.'],
+    ['Compare options','We help you look at lenders that may suit your course and profile.'],
+    ['Prepare documents','You get a checklist of what the lender is likely to ask for.'],
+    ['Sanction and disbursal','The lender decides approval. Fees are usually paid to the institution.']
   ];
+  const card = ([ic,txt])=>`<div class="ln-card"><div class="ln-ic">${lnIco(ic)}</div><span>${txt}</span></div>`;
   return `
-  <section class="ln-hero">
+  <section class="ln-hero2">
     <div class="container">
-      <div class="ln-hero-grid">
-        <div>
-          <span class="kicker">Exampoll Education Loan</span>
-          <h1 style="font-size:32px;line-height:1.2;margin-bottom:10px;">Education Loan</h1>
-          <p style="color:var(--slate);font-size:15px;line-height:1.7;max-width:520px;margin-bottom:18px;">Compare partner banks, check your EMI and apply — with minimum documents and no repeated calls.</p>
-          <div class="ln-tabs" role="tablist">
-            <button class="ln-tab ${!abroad?'on':''}" onclick="setLoanTab('india')" role="tab">${lnIco('cap',16)} Study in India</button>
-            <button class="ln-tab ${abroad?'on':''}" onclick="setLoanTab('abroad')" role="tab">${lnIco('globe',16)} Study Abroad</button>
-          </div>
-          <div style="display:flex;gap:12px;flex-wrap:wrap;">
-            <button class="btn btn-primary" onclick="openEnquiry(null,null)">Check Loan Eligibility</button>
-            <button class="btn btn-outline" onclick="document.getElementById('ln-calc').scrollIntoView({behavior:'smooth'})">Calculate EMI</button>
-          </div>
-        </div>
+      <span class="ln-badge">Education loan guidance</span>
+      <h1>Plan your education loan, step by step</h1>
+      <p class="ln-sub">Estimate your EMI, see what your loan may cover and get free guidance before you apply. Approval, interest rate and fees are decided by the lender.</p>
+      <div class="ln-tabs" role="tablist" style="margin-left:auto;margin-right:auto;display:flex;width:max-content;max-width:100%;">
+        <button class="ln-tab ${!abroad?'on':''}" onclick="setLoanTab('india')" role="tab" aria-selected="${!abroad}">${lnIco('cap',16)} Study in India</button>
+        <button class="ln-tab ${abroad?'on':''}" onclick="setLoanTab('abroad')" role="tab" aria-selected="${abroad}">${lnIco('globe',16)} Study Abroad</button>
       </div>
-      <div class="ln-trust">
-        <div><div class="ln-ic">${lnIco('doc')}</div><div><b>Minimum documents</b><span>Only the must-have papers.</span></div></div>
-        <div><div class="ln-ic">${lnIco('shield')}</div><div><b>No repeated calls</b><span>One counsellor, one conversation.</span></div></div>
-        <div><div class="ln-ic">${lnIco('bank')}</div><div><b>Multiple lenders</b><span>Compare banks and NBFCs together.</span></div></div>
+      <div class="ln-cta-row">
+        <button class="ln-cta-main" onclick="openEnquiry(null,null)">Check my eligibility</button>
+        <button class="ln-cta-ghost" onclick="document.getElementById('ln-calc').scrollIntoView({behavior:'smooth'})">Calculate my EMI</button>
       </div>
+      <ul class="ln-chips">
+        <li>${lnIco('shield',18)}<span>Your details stay private</span></li>
+        <li>${lnIco('cap',18)}<span>Free guidance from a counsellor</span></li>
+        <li>${lnIco('bank',18)}<span>Compare several lenders</span></li>
+      </ul>
     </div>
   </section>
 
-  <section class="section" style="padding-top:36px;padding-bottom:20px;" id="ln-calc">
+  <section class="section" style="padding-top:44px;padding-bottom:12px;">
     <div class="container">
-      <h2 style="font-size:24px;margin-bottom:6px;">Education loan EMI calculator</h2>
-      <p style="color:var(--slate);font-size:14.5px;margin-bottom:18px;">Move the sliders to see your estimated monthly EMI for ${abroad?'a study-abroad':'an India'} loan.</p>
+      <h2 style="font-size:24px;margin-bottom:6px;">What a loan may cover</h2>
+      <p style="color:var(--slate);font-size:14.5px;margin-bottom:18px;">Costs covered depend on the lender's policy and approval.</p>
+      <div class="ln-cards">${covers.map(card).join('')}</div>
+    </div>
+  </section>
+
+  <section class="section" style="padding-top:28px;padding-bottom:12px;" id="ln-calc">
+    <div class="container">
+      <h2 style="font-size:24px;margin-bottom:6px;">Estimate your EMI</h2>
+      <p style="color:var(--slate);font-size:14.5px;margin-bottom:18px;">Move the sliders to see an estimated monthly EMI for ${abroad?'a study-abroad':'an India'} loan.</p>
       <div class="ln-calc">
         <div>
           <div class="ln-row"><div class="top"><span>Loan amount</span><b id="ln-v-amount">${fmtINR(LOAN.amount)}</b></div>
@@ -2224,37 +2359,57 @@ function pageLoan(){
             <div class="ln-line"><span><i style="background:#D9C4EE"></i>Total interest</span><b id="ln-interest">${fmtINR(c.interest)}</b></div>
             <div class="ln-line"><span>Total payable</span><b id="ln-total">${fmtINR(c.total)}</b></div>
           </div>
-          <button class="btn btn-primary btn-block" onclick="openEnquiry(null,null)">Get This Loan Checked</button>
+          <button class="btn btn-primary btn-block" onclick="openEnquiry(null,null)">Get this loan checked</button>
         </div>
       </div>
       <p class="ln-note">Indicative estimate only. Interest during the moratorium is assumed as simple interest and added to the principal. Actual rate, fees and EMI are decided by the lender.</p>
     </div>
   </section>
 
-  <section class="section" style="padding-top:28px;padding-bottom:20px;">
+  <section class="section" style="padding-top:36px;padding-bottom:12px;">
     <div class="container">
-      <h2 style="font-size:24px;margin-bottom:6px;">Our partner banks</h2>
-      <p style="color:var(--slate);font-size:14.5px;margin-bottom:18px;">Public-sector banks, private banks and education-focused NBFCs, all in one place.</p>
+      <h2 style="font-size:24px;margin-bottom:6px;">How it works</h2>
+      <ol class="ln-steps">${steps.map(([h,d])=>`<li><b>${h}</b><span>${d}</span></li>`).join('')}</ol>
+    </div>
+  </section>
+
+  <section class="section" style="padding-top:36px;padding-bottom:12px;">
+    <div class="container">
+      <h2 style="font-size:24px;margin-bottom:6px;">Documents you may need</h2>
+      <p style="color:var(--slate);font-size:14.5px;margin-bottom:18px;">Lenders may ask for different documents. This is a general checklist.</p>
+      <div class="ln-docs">
+        <div><h3>Student</h3><ul>${studentDocs.map(d=>`<li>${d}</li>`).join('')}</ul></div>
+        <div><h3>Co-applicant</h3><ul>${coDocs.map(d=>`<li>${d}</li>`).join('')}</ul></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" style="padding-top:36px;padding-bottom:12px;">
+    <div class="container">
+      <h2 style="font-size:24px;margin-bottom:6px;">Lenders you can compare</h2>
+      <p style="color:var(--slate);font-size:14.5px;margin-bottom:18px;">Being listed here does not mean a partnership with Exampoll. Each lender confirms its own eligibility, rates and documents.</p>
       <div class="ln-banks">${LOAN_LENDERS.map(b=>`<div class="ln-bank"><div class="ln-logo" style="background:${bankColor(b)}">${bankInitials(b)}</div><span>${b}</span></div>`).join('')}</div>
     </div>
   </section>
 
-  <section class="section" style="padding-top:28px;padding-bottom:20px;">
+  <section class="section" style="padding-top:28px;padding-bottom:12px;">
     <div class="container" style="max-width:880px;">
       <h2 style="font-size:24px;margin-bottom:16px;">FAQs</h2>
       ${LOAN_FAQ.slice(0,3).map(f=>`<details class="ln-faq"><summary>${f.q}</summary><p>${f.a}</p></details>`).join('')}
     </div>
   </section>
 
-  <section class="section" style="padding-top:8px;padding-bottom:64px;">
+  <section class="section ln-page-pad" style="padding-top:8px;padding-bottom:64px;">
     <div class="container">
       <p class="ln-note" style="margin-bottom:18px;">Exampoll is an education information platform and not a lender. Loan approval, interest rates, fees and terms are decided solely by the respective bank or financial institution.</p>
       <div class="counsel-banner">
-        <div><h2>Ready to fund your education?</h2><p>Check your eligibility in a couple of minutes \u2014 free, with minimum documents.</p></div>
-        <div class="right"><button class="btn btn-primary" onclick="openEnquiry(null,null)">Check Loan Eligibility</button></div>
+        <div><h2>Want help with your education loan?</h2><p>Share a few details and a counsellor will guide you. Free.</p></div>
+        <div class="right"><button class="btn btn-primary" onclick="openEnquiry(null,null)">Check my eligibility</button></div>
       </div>
     </div>
-  </section>`;
+  </section>
+
+  <div class="ln-sticky"><button onclick="openEnquiry(null,null)">Check my eligibility</button></div>`;
 }
 
 function pageAbout(){
@@ -2407,7 +2562,6 @@ function contactCopy(){
   return `<p>Searching for a college and not sure where to start? Search our listings first. Still stuck on a college, course or application? Send us an enquiry and a counsellor will get back to you — free of cost.</p>
   <button class="btn btn-primary" onclick="openEnquiry(null,null)">Get Free Counselling</button>
   <div style="margin-top:24px;display:flex;flex-direction:column;gap:6px;">
-    <span>📞 <a href="tel:+919950389803" style="color:var(--purple);font-weight:700;">+91 99503 89803</a></span>
     <span>✉️ <a href="mailto:exampoll77@gmail.com" style="color:var(--purple);font-weight:700;">exampoll77@gmail.com</a></span>
     <span>📍 <span style="color:var(--ink);">Udhyog Vihar Phase 5, Gurugram, Haryana</span></span>
   </div>`;
@@ -2498,12 +2652,33 @@ const quizSteps = [
 function visibleQuizSteps(answers){ return quizSteps.filter(s=> !s.showIf || s.showIf(answers)); }
 
 function openQuiz(){
-  State.quizCtx = { step:0, answers:{} };
+  State.quizCtx = { step:0, answers:{}, entry:true };
   document.getElementById('modal-root').innerHTML = quizModalHTML();
 }
 function closeQuiz(){ State.quizCtx = null; document.getElementById('modal-root').innerHTML = ''; }
+// Entry screen: three direct paths, or start the 7-question quiz.
+function quizEntryHTML(){
+  return `<div style="text-align:center;">
+    <div class="ai-badge">✨ Exampoll AI</div>
+    <h3 style="font-size:20px;margin:12px 0 6px;">Aap kya dhoondh rahe hain?</h3>
+    <p style="color:var(--slate);font-size:13.5px;margin:0 0 18px;">Seedha page chunein, ya quiz se apna best match paayein.</p>
+    <div class="entry-grid">
+      <button class="entry-card" onclick="quizGo('/colleges')"><span class="ei">🎓</span><b>After Class 12th</b><small>Colleges aur courses</small></button>
+      <button class="entry-card" onclick="quizGo('/online-degrees')"><span class="ei">💻</span><b>Online Degree</b><small>Ghar se padhai</small></button>
+      <button class="entry-card" onclick="quizGo('/study-abroad')"><span class="ei">🌍</span><b>Abroad</b><small>Study abroad options</small></button>
+    </div>
+    <button class="btn btn-primary btn-block" style="margin-top:18px;" onclick="startQuiz()">Quiz se best match dhoondhein →</button>
+    <button onclick="closeQuiz()" style="width:100%;text-align:center;padding:8px;border:none;background:none;color:var(--slate-light);font-size:12.5px;cursor:pointer;font-family:inherit;margin-top:6px;">Cancel</button>
+  </div>`;
+}
+function quizGo(path){ closeQuiz(); go(path); window.scrollTo(0,0); }
+function startQuiz(){
+  State.quizCtx.entry = false;
+  document.getElementById('modal-root').innerHTML = quizModalHTML();
+}
 function quizModalHTML(){
-  return `<div class="modal-overlay" onclick="if(event.target===this) closeQuiz()"><div class="modal ai-modal" style="padding:26px 24px;">${quizStepHTML()}</div></div>`;
+  const inEntry = State.quizCtx && State.quizCtx.entry;
+  return `<div class="modal-overlay" onclick="if(event.target===this) closeQuiz()"><div class="modal ai-modal" style="padding:26px 24px;">${inEntry ? quizEntryHTML() : quizStepHTML()}</div></div>`;
 }
 function quizStepHTML(){
   const ctx = State.quizCtx;
@@ -2636,7 +2811,7 @@ function renderModal(){
         <ul class="value-props">
           <li>✓ Free profile review</li>
           <li>✓ Course-to-career counselling</li>
-          <li>✓ Transparent, no-commission process</li>
+          <li>✓ Clear fee and course details</li>
         </ul>
         <form id="enquiry-form" onsubmit="return submitEnquiry(event)">
           <div class="field-row">
@@ -2659,7 +2834,7 @@ function renderModal(){
             </div>
           </div>
           <button class="btn btn-primary btn-block" type="submit">Get Admission Guidance</button>
-          <p class="no-spam">🔒 We respect your privacy — no spam calls, no unwanted messages.</p>
+          <p class="no-spam">🔒 We use your details only to contact you about this enquiry.</p>
         </form>
       </div>
     </div>
@@ -2753,6 +2928,7 @@ function pageAdmin(){
   else if(sec==='colleges') content = adminColleges();
   else if(sec==='courses') content = adminCourses();
   else if(sec==='blogs') content = adminBlogs();
+  else if(sec==='cuet') content = adminCuet();
   else if(sec==='enquiries') content = adminEnquiries();
   else if(sec==='settings') content = adminSettings();
 
@@ -2763,6 +2939,7 @@ function pageAdmin(){
       <div class="grp ${sec==='colleges'?'active':''}" onclick="State.adminSection='colleges';State.adminEditingCollege=null;render();">🏫 Colleges</div>
       <div class="grp ${sec==='courses'?'active':''}" onclick="State.adminSection='courses';State.adminEditingCourse=null;render();">🎓 Courses</div>
       <div class="grp ${sec==='blogs'?'active':''}" onclick="State.adminSection='blogs';State.adminEditingBlog=null;render();">📝 Blogs</div>
+      <div class="grp ${sec==='cuet'?'active':''}" onclick="State.adminSection='cuet';render();">🎯 CUET Page</div>
       <div class="grp ${sec==='enquiries'?'active':''}" onclick="State.adminSection='enquiries';render();">✉️ Enquiries</div>
       <div class="grp ${sec==='settings'?'active':''}" onclick="State.adminSection='settings';render();">⚙️ Site Settings</div>
       <div class="divider"></div>
@@ -2883,8 +3060,9 @@ function adminCollegeEditor(draft){
     </div>
     <button class="btn btn-outline btn-sm" onclick="addCourseRow()">+ Add course</button>
   </div>
+  ${adminCollegeCuetBlock(draft)}
   <div style="display:flex;gap:10px;">
-    <button class="btn btn-primary" onclick="this.disabled=true;this.textContent='Saving...';saveCollegeDraft(${isNew})">Save College</button>
+    <button class="btn btn-primary" data-label="Save College" onclick="this.disabled=true;this.textContent='Saving...';saveCollegeDraft(${isNew}, this)">Save College</button>
     <button class="btn btn-outline" onclick="State.adminEditingCollege=null;render();">Cancel</button>
   </div>`;
 }
@@ -2942,9 +3120,9 @@ function addCourseRow(){
   wrap.appendChild(div.firstElementChild);
 }
 function removeCourseRow(btn){ btn.closest('.course-row').remove(); }
-async function saveCollegeDraft(isNew){
+async function saveCollegeDraft(isNew, btn){
   const name = document.getElementById('f-name').value.trim();
-  if(!name){ showToast('College name is required'); return; }
+  if(!name){ showToast('College name is required'); resetBtn(btn); return; }
   const rows = [...document.querySelectorAll('#course-rows .course-row')].map(r=>({
     courseId: r.querySelector('.cr-course').value,
     duration: r.querySelector('.cr-duration').value.trim(),
@@ -2952,6 +3130,8 @@ async function saveCollegeDraft(isNew){
     mode: r.querySelector('.cr-mode').value
   }));
   const draft = State.adminEditingCollege;
+  const cuet = readCollegeCuet();
+  if(!cuet){ resetBtn(btn); return; }
   const obj = {
     id: draft.id || uid('col'),
     slug: slugify(name), name,
@@ -2973,6 +3153,8 @@ async function saveCollegeDraft(isNew){
     published: document.getElementById('f-pub').checked,
     abroad: document.getElementById('f-abroad').checked,
     onlineDegree: document.getElementById('f-online').checked,
+    cuetAccepted: cuet.accepted,
+    cuetDetails: cuet.details,
     courses: rows
   };
   if(isNew) State.colleges.push(obj);
@@ -2981,6 +3163,162 @@ async function saveCollegeDraft(isNew){
   State.adminEditingCollege = null;
   render();
   showToast(isNew?'College added':'College updated');
+}
+
+/* ---- Admin: CUET page ---- */
+const CU_KINDS = {
+  points: { fields:[['text','Point shown on the homepage card']] },
+  faq:    { fields:[['q','Question'],['a','Answer','textarea']] },
+  mats:   { fields:[['title','Title'],['desc','Short description'],['type','Type (e.g. Notes, Practice paper)'],['url','File or link (https://)']] },
+  test:   { fields:[['quote','What the student said (only with permission)','textarea'],['name','Student name or initials'],['course','Course / college']] },
+  cmats:  { fields:[['title','Title'],['type','Type (e.g. Notes, Practice paper)'],['url','File or link (https://)']] }
+};
+function cuRowHTML(kind, values){
+  const spec = CU_KINDS[kind];
+  const inner = spec.fields.map(([k, ph, t]) => t === 'textarea'
+    ? `<textarea class="input cu-f" data-k="${k}" rows="2" placeholder="${esc(ph)}">${esc(values[k]||'')}</textarea>`
+    : `<input class="input cu-f" data-k="${k}" placeholder="${esc(ph)}" value="${esc(values[k]||'')}"/>`).join('');
+  return `<div class="cu-row" data-row>${inner}<button type="button" class="mini-x" onclick="this.closest('[data-row]').remove()" aria-label="Remove row">✕</button></div>`;
+}
+function cuRowsBlock(kind, rows){
+  return `<div id="cu-${kind}" class="cu-list">${rows.map(r => cuRowHTML(kind, r)).join('')}</div>
+  <button type="button" class="btn btn-outline btn-sm" onclick="cuAddRow('${kind}')">+ Add</button>`;
+}
+function cuAddRow(kind){
+  const wrap = document.getElementById('cu-' + kind);
+  wrap.insertAdjacentHTML('beforeend', cuRowHTML(kind, {}));
+  const first = wrap.lastElementChild && wrap.lastElementChild.querySelector('.cu-f');
+  if(first) first.focus();
+}
+function cuCollect(kind){
+  return [...document.querySelectorAll('#cu-' + kind + ' [data-row]')].map(r => {
+    const o = {};
+    r.querySelectorAll('.cu-f').forEach(i => o[i.dataset.k] = i.value.trim());
+    return o;
+  }).filter(o => Object.values(o).some(Boolean));
+}
+function resetBtn(btn){ if(btn){ btn.disabled = false; btn.textContent = btn.dataset.label || 'Save'; } }
+const isHttpOrEmpty = v => !v || /^https?:\/\//i.test(v);
+
+function adminCuet(){
+  const c = cuetCfg();
+  const colleges = State.colleges.slice().sort((a,b) => a.name.localeCompare(b.name));
+  const marked = colleges.filter(x => x.cuetAccepted).length;
+  const pts = (c.homePoints && c.homePoints.length) ? c.homePoints : CUET_DEFAULTS.homePoints;
+  return `
+  <div class="admin-topbar"><h2>CUET Page</h2><a class="btn btn-outline btn-sm" href="/cuet" target="_blank" rel="noopener">View page ↗</a></div>
+  <div class="editor-panel">
+    <h3>Page status</h3>
+    <label class="switch"><input type="checkbox" id="cu-live" ${c.live?'checked':''}/> Live: allow Google to index /cuet</label>
+    <p class="cu-help">Off means the page works for visitors but Google is asked not to index it. Turn this on only after at least one published college is marked as accepting CUET and its details are checked.</p>
+    <div class="form-grid">
+      <div class="field"><label>Year shown on homepage card</label><input class="input" id="cu-year" value="${esc(c.year||'2027')}" placeholder="2027"/></div>
+      <div class="field"><label>Homepage card tag</label><input class="input" id="cu-tag" value="${esc(c.homeTag||'')}"/></div>
+    </div>
+  </div>
+  <div class="editor-panel">
+    <h3>Homepage card points</h3>
+    ${cuRowsBlock('points', pts.map(p => ({ text:p })))}
+  </div>
+  <div class="editor-panel">
+    <h3>Colleges accepting CUET (${marked} marked)</h3>
+    <p class="cu-help">Tick a college to list it on the CUET page. Only published colleges appear there. Use Edit details to add its eligibility, fees, official link and study material. Save any unsaved page changes first, because Edit details opens the college form.</p>
+    <div class="admin-table-wrap"><table class="admin-table">
+      <thead><tr><th>College</th><th>Location</th><th>Accepts CUET</th><th></th></tr></thead>
+      <tbody>${colleges.map(x => `<tr>
+        <td><strong>${esc(x.name)}</strong>${x.published ? '' : ' <span class="badge unpub">Unpublished</span>'}</td>
+        <td>${esc(x.city)}, ${esc(x.abroad ? (x.country||x.state) : x.state)}</td>
+        <td><input type="checkbox" aria-label="${esc(x.name)} accepts CUET" ${x.cuetAccepted?'checked':''} onchange="setCollegeCuet('${x.id}', this.checked)"/></td>
+        <td><button class="btn btn-outline btn-sm" onclick="editCollegeFromCuet('${x.id}')">Edit details</button></td>
+      </tr>`).join('') || `<tr><td colspan="4" style="text-align:center;padding:30px;color:var(--slate-light);">No colleges yet.</td></tr>`}</tbody>
+    </table></div>
+  </div>
+  <div class="editor-panel">
+    <h3>Free study material (for all CUET students)</h3>
+    <p class="cu-help">Files or links that are not tied to one college. College-specific material is added in that college's CUET details.</p>
+    ${cuRowsBlock('mats', c.materials || [])}
+  </div>
+  <div class="editor-panel">
+    <h3>FAQs</h3>
+    ${cuRowsBlock('faq', c.faq || [])}
+  </div>
+  <div class="editor-panel">
+    <h3>Student experiences</h3>
+    <label class="switch"><input type="checkbox" id="cu-verified" ${c.testimonials && c.testimonials.verified ? 'checked' : ''}/> Show this section on the page</label>
+    <p class="cu-help">Tick only after you have written permission from each student. Nothing placeholder-like is ever shown as a real review.</p>
+    ${cuRowsBlock('test', (c.testimonials && c.testimonials.items) || [])}
+  </div>
+  <button class="btn btn-primary" data-label="Save CUET page" onclick="this.disabled=true;this.textContent='Saving...';saveCuetSettings(this)">Save CUET page</button>`;
+}
+async function saveCuetSettings(btn){
+  const mats = cuCollect('mats').filter(o => o.title).map(o => ({ title:o.title, desc:o.desc||'', type:o.type||'', url:o.url||'' }));
+  if(mats.some(m => !isHttpOrEmpty(m.url))){ showToast('Study material links must start with https://'); resetBtn(btn); return; }
+  const cfg = {
+    live: document.getElementById('cu-live').checked,
+    year: document.getElementById('cu-year').value.trim() || '2027',
+    homeTag: document.getElementById('cu-tag').value.trim() || 'Exampoll CUET Guide',
+    homePoints: cuCollect('points').map(o => o.text).filter(Boolean),
+    faq: cuCollect('faq').filter(o => o.q && o.a).map(o => ({ q:o.q, a:o.a })),
+    materials: mats,
+    testimonials: {
+      verified: document.getElementById('cu-verified').checked,
+      items: cuCollect('test').filter(o => o.quote).map(o => ({ quote:o.quote, name:o.name||'', course:o.course||'' }))
+    }
+  };
+  if(cfg.live && !State.colleges.some(c => c.cuetAccepted && c.published)){
+    if(!confirm('No published college is marked as accepting CUET, so the page will say that colleges are being added. Save anyway?')){ resetBtn(btn); return; }
+  }
+  const ok = await saveSetting('cuet_config', JSON.stringify(cfg));
+  if(ok){ State.cuetConfig = Object.assign({}, CUET_DEFAULTS, cfg); showToast('CUET page saved'); render(); }
+  else resetBtn(btn);
+}
+async function setCollegeCuet(id, on){
+  const c = collegeById(id);
+  if(!c) return;
+  const before = c.cuetAccepted;
+  c.cuetAccepted = on;
+  try{
+    const { error } = await sb.from('colleges').update({ cuet_accepted: on }).eq('id', id);
+    if(error) throw error;
+    showToast(on ? 'Marked as accepting CUET' : 'Removed from the CUET page');
+  }catch(e){
+    c.cuetAccepted = before;
+    showToast('Could not save. Check your connection and try again.');
+    render();
+  }
+}
+function editCollegeFromCuet(id){ State.adminSection = 'colleges'; editCollege(id); }
+
+function adminCollegeCuetBlock(draft){
+  const d = draft.cuetDetails || {};
+  const mats = Array.isArray(d.materials) ? d.materials : [];
+  return `
+  <div class="editor-panel">
+    <h3>CUET details</h3>
+    <label class="switch"><input type="checkbox" id="f-cuet-acc" ${draft.cuetAccepted?'checked':''}/> This college accepts CUET scores (list it on the CUET page)</label>
+    <div class="form-grid" style="margin-top:14px;">
+      <div class="field full"><label>CUET eligibility (short text)</label><input class="input" id="f-cuet-elig" value="${esc(d.eligibility||'')}" placeholder="e.g. CUET UG score; Class 12 pass"/></div>
+      <div class="field"><label>Fees (short text shown on card)</label><input class="input" id="f-cuet-fees" value="${esc(d.fees||'')}" placeholder="e.g. ₹1.2 L per year"/></div>
+      <div class="field"><label>Official admission link</label><input class="input" id="f-cuet-url" value="${esc(d.applyUrl||'')}" placeholder="https://..."/></div>
+    </div>
+    <h4 style="margin:16px 0 8px;">Free study material for this college</h4>
+    ${cuRowsBlock('cmats', mats)}
+  </div>`;
+}
+function readCollegeCuet(){
+  const applyUrl = document.getElementById('f-cuet-url').value.trim();
+  if(!isHttpOrEmpty(applyUrl)){ showToast('Official admission link must start with https://'); return null; }
+  const mats = cuCollect('cmats').filter(o => o.title);
+  if(mats.some(m => !isHttpOrEmpty(m.url))){ showToast('Study material links must start with https://'); return null; }
+  return {
+    accepted: document.getElementById('f-cuet-acc').checked,
+    details: {
+      eligibility: document.getElementById('f-cuet-elig').value.trim(),
+      fees: document.getElementById('f-cuet-fees').value.trim(),
+      applyUrl,
+      materials: mats.map(m => ({ title:m.title, type:m.type||'', url:m.url||'' }))
+    }
+  };
 }
 
 /* ---- Admin: Courses ---- */
@@ -3212,14 +3550,25 @@ async function updateEnquiryStatus(id, status){
   State.dataReady = !!hadCache;
   if(!hadCache){
     State.catalog = seedCourseCatalog();
-    State.colleges = seedColleges();
-    State.blogs = seedBlogs();
+    if(IS_PREVIEW){ State.colleges = seedColleges(); State.blogs = seedBlogs(); }
   }
   render();
 
   // Then quietly fetch the real data in the background and re-render
   // once it lands (this also refreshes the cache for next time).
   loadAll().then(()=>{ State.dataReady = true; render(); }).catch(()=>{});
+})();
+</script>
+<script>
+(function(){
+  var last = 0;
+  window.addEventListener('scroll', function(){
+    var y = window.scrollY || 0;
+    if (window.innerWidth > 640) { document.body.classList.remove('fab-hide'); last = y; return; }
+    if (y > last + 6 && y > 240) document.body.classList.add('fab-hide');
+    else if (y < last - 6) document.body.classList.remove('fab-hide');
+    last = y;
+  }, { passive: true });
 })();
 </script>
 </body>
